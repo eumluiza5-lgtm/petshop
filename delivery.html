@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery - Gateen Pet Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="imglogo.jpeg" alt="Gateen Pet Shop" class="logo-img">
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="fidelidade.html">Fidelidade</a>
+                <a href="delivery.html" class="active">Delivery</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://wa.me/5586998317652" target="_blank" class="phone">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>(86) 99831-7652</span>
+                </a>
+                <button class="btn-agendar" onclick="openModal('agendamento')">
+                    <i class="far fa-calendar-alt"></i>
+                    Agendar agora
+                </button>
+                <button class="cart-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header delivery-hero">
+        <div class="container">
+            <h1><i class="fab fa-whatsapp"></i> Delivery pelo WhatsApp</h1>
+            <p>Peça pelo WhatsApp e receba em casa!</p>
+        </div>
+    </section>
+
+    <section class="delivery-page">
+        <div class="container">
+            <div class="delivery-content-page">
+                <div class="delivery-info">
+                    <div class="delivery-card">
+                        <i class="fas fa-motorcycle"></i>
+                        <h3>Entrega Rápida</h3>
+                        <p>Entregamos em até 60 minutos para toda a cidade. Seu pet não espera!</p>
+                    </div>
+                    <div class="delivery-card">
+                        <i class="fas fa-box-open"></i>
+                        <h3>Embalagem Segura</h3>
+                        <p>Produtos embalados com cuidado para chegar perfeitos na sua casa.</p>
+                    </div>
+                    <div class="delivery-card">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Pagamento na Entrega</h3>
+                        <p>Pague com dinheiro, cartão ou PIX na hora da entrega.</p>
+                    </div>
+                    <div class="delivery-card">
+                        <i class="fas fa-gift"></i>
+                        <h3>Frete Grátis</h3>
+                        <p>Em compras acima de R$ 150,00 o frete é por nossa conta!</p>
+                    </div>
+                </div>
+
+                <div class="delivery-cta">
+                    <div class="cta-box">
+                        <i class="fab fa-whatsapp"></i>
+                        <h2>Faça seu pedido agora!</h2>
+                        <p>É simples e rápido. Mande uma mensagem no WhatsApp com o que precisa e entregamos na sua
+                            porta.</p>
+                        <a href="https://wa.me/5586998317652?text=Olá! Quero fazer um pedido para delivery 🛵"
+                            target="_blank" class="btn-delivery-big">
+                            <i class="fab fa-whatsapp"></i>
+                            Pedir pelo WhatsApp
+                        </a>
+                        <div class="phone-number">
+                            <i class="fab fa-whatsapp"></i>
+                            (86) 99831-7652
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="imglogo.jpeg" alt="Gateen Pet Shop" class="logo-img-footer">
+                    </a>
+                    <p>Amor, cuidado e qualidade para<br>o seu melhor amigo!</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Institucional</h4>
+                    <a href="index.html">Início</a>
+                    <a href="produtos.html">Produtos</a>
+                    <a href="servicos.html">Serviços</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Ajuda</h4>
+                    <a href="fidelidade.html">Fidelidade</a>
+                    <a href="delivery.html">Delivery</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Siga-nos</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Gateen Pet Shop. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Carrinho</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Seu carrinho está vazio</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <strong id="cart-total">R$ 0,00</strong>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">
+                <i class="fab fa-whatsapp"></i>
+                Finalizar no WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-message">Item adicionado!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Gateen Pet Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="imglogo.jpeg" alt="Gateen Pet Shop" class="logo-img">
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="servicos.html" class="active">Serviços</a>
+                <a href="fidelidade.html">Fidelidade</a>
+                <a href="delivery.html">Delivery</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+            <div class="header-actions">
+                <a href="https://wa.me/5586998317652" target="_blank" class="phone">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>(86) 99831-7652</span>
+                </a>
+                <button class="btn-agendar" onclick="openModal('agendamento')">
+                    <i class="far fa-calendar-alt"></i>
+                    Agendar agora
+                </button>
+                <button class="cart-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Nossos Serviços</h1>
+            <p>Cuidado especializado para o seu pet</p>
+        </div>
+    </section>
+
+    <section class="services-page">
+        <div class="container">
+            <div class="service-card">
+                <div class="service-card-icon"><i class="fas fa-cut"></i></div>
+                <h3>Banho e Tosa</h3>
+                <p>Seu pet sempre limpinho e cheiroso. Inclui banho com shampoo específico, secagem, tosa higiênica e
+                    finalização.</p>
+                <div class="service-price">R$ 45,00</div>
+                <button class="btn-service" onclick="openAgendamentoModal('Banho e Tosa')">
+                    <i class="fas fa-calendar-alt"></i> Agendar
+                </button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-card-icon"><i class="fas fa-tint"></i></div>
+                <h3>Hidratação</h3>
+                <p>Pelos macios e saudáveis. Tratamento profundo com máscaras hidratantes para deixar o pelo do seu pet
+                    brilhante.</p>
+                <div class="service-price">R$ 35,00</div>
+                <button class="btn-service" onclick="openAgendamentoModal('Hidratação')">
+                    <i class="fas fa-calendar-alt"></i> Agendar
+                </button>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <a href="index.html" class="logo">
+                            <img src="imglogo.jpeg" alt="Gateen Pet Shop" class="logo-img-footer">
+                        </a>
+                        <p>Amor, cuidado e qualidade para<br>o seu melhor amigo!</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Institucional</h4>
+                        <a href="index.html">Início</a>
+                        <a href="produtos.html">Produtos</a>
+                        <a href="servicos.html">Serviços</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Ajuda</h4>
+                        <a href="fidelidade.html">Fidelidade</a>
+                        <a href="delivery.html">Delivery</a>
+                        <a href="contato.html">Contato</a>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Siga-nos</h4>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2024 Gateen Pet Shop. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <div class="cart-sidebar" id="cart-sidebar">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-cart"></i> Carrinho</h3>
+                <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Seu carrinho está vazio</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <strong id="cart-total">R$ 0,00</strong>
+                </div>
+                <button class="btn-checkout" onclick="checkout()">
+                    <i class="fab fa-whatsapp"></i>
+                    Finalizar no WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+        <div class="toast" id="toast">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Item adicionado!</span>
+        </div>
+
+        <!-- Modal Agendamento -->
+        <div class="modal" id="modal-agendamento">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-calendar-alt"></i> Agendar Serviço</h3>
+                    <button class="close-modal" onclick="closeModal('agendamento')"><i
+                            class="fas fa-times"></i></button>
+                </div>
+                <form class="modal-form" onsubmit="handleAgendamento(event)">
+                    <div class="form-group">
+                        <label>Seu Nome</label>
+                        <input type="text" placeholder="Digite seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" placeholder="(86) 99999-9999" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Serviço</label>
+                        <select required>
+                            <option value="">Selecione...</option>
+                            <option>Banho e Tosa</option>
+                            <option>Hidratação</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Data</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Horário</label>
+                        <select required>
+                            <option value="">Selecione...</option>
+                            <option>08:00</option>
+                            <option>09:00</option>
+                            <option>10:00</option>
+                            <option>11:00</option>
+                            <option>14:00</option>
+                            <option>15:00</option>
+                            <option>16:00</option>
+                            <option>17:00</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fab fa-whatsapp"></i>
+                        Confirmar pelo WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
